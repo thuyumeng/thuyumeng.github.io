@@ -15,5 +15,16 @@ module.exports = {
         pathToConfigModule: `src/utils/typography.js`,
       },
     },
+    {
+      resolve: "gatsby-plugin-google-fonts",
+      options: {
+        fonts: [
+          "Dancing Script",
+          // Add more fonts if needed
+        ],
+        display: "swap",
+      },
+    },
   ],
 }
+
