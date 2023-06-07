@@ -1,8 +1,9 @@
 // https://www.hotelfulva.com/tutorial/part-two/
 import React from "react"
 import Layout from "../components/layout"
+import Seo from '../components/seo'
 
-export default () => (
+const IndexPage = () => (
   <Layout pageTitle="Home Page">
     <div>
       <h1>Richard Hamming on Luck</h1>
@@ -30,4 +31,6 @@ export default () => (
   </Layout>
 )
 
-export const Head = () => <title>Home Page</title>
+export const Head = () => <Seo title="Home Page" />
+
+export default IndexPage

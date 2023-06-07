@@ -8,6 +8,9 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
+  siteMetadata: {
+    title: "My Career Blog",
+  },
   plugins: [
     {
       resolve: `gatsby-plugin-typography`,
