@@ -7,6 +7,9 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
+const remarkMath = import('remark-math')
+const rehypeKatex = import('rehype-katex')
+
 module.exports = {
   siteMetadata: {
     title: "My Career Blog",
@@ -35,7 +38,20 @@ module.exports = {
         path: `${__dirname}/blog`,
       }
     },
-    "gatsby-plugin-mdx",
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-katex`,
+            options: {
+              // Add any KaTeX options here
+              // See https://github.com/KaTeX/KaTeX/tree/master/docs/options for available options
+            },
+          },
+        ],
+      },
+    },
   ],
 }
 
