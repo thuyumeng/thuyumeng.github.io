@@ -1,10 +1,16 @@
   .container {
     margin: auto;
-    max-width: 800px;
+    max-width: 1000px;
     font-family: "Dancing Script", sans-serif;
   }
   .heading {
-    color: rebeccapurple;
+    color: #11009E;
+  }
+  .heading-1 {
+    color: #4942E4;
+  }
+  .heading-2 {
+    color: #8696FE;
   }
   .nav-links {
     display: flex;

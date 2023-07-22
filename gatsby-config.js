@@ -25,7 +25,7 @@ module.exports = {
       resolve: "gatsby-plugin-google-fonts",
       options: {
         fonts: [
-          "Dancing Script",
+          "Roboto Slab",
           // Add more fonts if needed
         ],
         display: "swap",

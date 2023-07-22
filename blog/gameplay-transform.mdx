@@ -1,0 +1,83 @@
+---
+title: "GamePlay: Transform"
+date: "2021-07-23"
+slug: "gameplay-transform"
+---
+
+
+# Introduction 
+In this post, I will discuss a technique frequently used in gameplay coding: Transform.
+Transformation problem is one of the most common problems that a game developer will face. 
+Typically, there are several kinds of transformation: translation, rotation, scaling, skewing, etc.
+But most used in GamePlay Programming are translation and rotation. In this post I am going to disccuss about translation and rotation through 
+2 practical examples.
+
+## basic concept:
+Suppose we have 2 coordinate systems: A and B, whereas A has its origin at $O_A$ and B has its origin at $O_B$. A and B have different basic vectors:
+ $\vec{a_1}, \vec{a_2}, \vec{a_3}$ and $\vec{b_1}, \vec{b_2}, \vec{b_3}$ ,respectively.
+ When we want to transform a point $P_A$ from A to B, we can use the following formula:
+ 
+ $$
+ P_B = M P_A + t \tag{1}
+ $$
+
+where $M$ is a 3x3 matrix and $t$ is a 3x1 vector. $M$ is called the rotation matrix and $t$ is called the translation vector.
+It is trivial to see that 
+
+$$
+t = O_B - O_A \tag{2}
+$$
+
+and in most cases, the coordinate system A has the same basic vectors as the world coordinate system, which means that 
+$\vec{a_1} = \begin{bmatrix} 1\\0 \\0 \end{bmatrix}, \vec{a_2} = \begin{bmatrix} 0\\1 \\0 \end{bmatrix}$, $\vec{a_3} = \begin{bmatrix} 0\\0 \\1 \end{bmatrix}$.
+(It is quite common to use the world coordinate system as the basic coordinate system for a game object's local coordinate system.)
+In this case, the rotation matrix $M$ is simply the matrix that has the basic vectors of B as its columns:
+where 
+$$
+M = \begin{bmatrix} \vec{b_1} & \vec{b_2} & \vec{b_3} \end{bmatrix} \tag{3}
+$$
+Why is that? Because we can see that $M \vec{a_1} = \vec{b_1}, M \vec{a_2} = \vec{b_2}, M \vec{a_3} = \vec{b_3}$. (the basic vectors of B are the images of the basic vectors of A under the transformation $M$)
+Replace the coordinate system A's basic vectors with the vectors that we have supposed. We can get the formula (3).
+This formula is very useful in practice. I will illustrate this with a concrete example.
+
+### Example 1: LookAt matrix
+Suppose we have a camera at $O_C$ and it is looking at a point $P$. We want to calculate the rotation matrix $M$ and the translation vector $t$ so that we can transform the point $P$ from the world coordinate system to the camera's local coordinate system.
+As we have discucssed above, we can get the translation vector $t$ by formula (2). Now we need to calculate the rotation matrix $M$.
+The world space coordinate system has the basic vectors $\vec{a_1} = \begin{bmatrix} 1\\0 \\0 \end{bmatrix}, \vec{a_2} = \begin{bmatrix} 0\\1 \\0 \end{bmatrix}$, $\vec{a_3} = \begin{bmatrix} 0\\0 \\1 \end{bmatrix}$.
+$M$ matrix is supposed to transform the basic vectors of the world coordinate system to the basic vectors of the camera's local coordinate system, which are the vectors that align with the camera's forward, right and up directions.
+According to the formula (3)
+$$ 
+M = \begin{bmatrix} \vec{right} & \vec{up} & \vec{forward} \end{bmatrix} \tag{4}
+$$
+We can calculate $\vec{forward}$ by $P - O_C$, and $\vec{right}$ and $\vec{up}$ can be calculated by cross product of $\vec{forward}$ and $\vec{up}$.
+
+$$
+\vec{right} = \vec{up'} \times \vec{forward}
+$$
+$$
+\vec{up} = \vec{forward} \times \vec{right} \tag{5}
+$$
+where $\vec{up'}$ is the up vector of the camera's local coordinate system. It is usually $\begin{bmatrix} 0\\1 \\0 \end{bmatrix}$, but it can be any vector that is not parallel to $\vec{forward}$.
+
+## Transform Composition
+It is very common that we need to apply multiple transformations to a point.
+For example, we have a point $P$ in the world coordinate system, and we want to transform it to the camera's local coordinate system, and then we want to transform it to the screen coordinate system.
+We can do this by applying the transformation matrix $M_{camera}$ and $M_{screen}$ to $P$ sequentially.
+$$
+P_{screen} = M_{screen} M_{camera} P \tag{6}
+$$
+
+### Example2: JoyStick Control
+Another common example is that we want to control a game object with a joystick.
+
+As the figure shows, we have a game object controlled by the joystick.
+It is important to note that the joystick's control directions are in the camera's local coordinate system.
+So, we have to transform the game object's world coordinate system to the camera's local coordinate system. 
+After we rotate the game object's forward direction according to the joystick's control direction, 
+we need to transform the game object's forward direction in the camera's local coordinate system back to the world coordinate system.
+These process can be represented by the following formula:
+$$
+M_{world}=M M_{joystick} M^{-1} \tag{7}
+$$
+where $M$ is the transformation matrix that transforms the game object's world coordinate system to the camera's local coordinate system, and $M_joystick$ is the rotation matrix that rotates the game object's forward direction according to the joystick's control direction.
+This transformation is called sandwich transformation. It is very common in gameplay programming.
