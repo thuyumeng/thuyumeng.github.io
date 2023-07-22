@@ -24,3 +24,12 @@
 .nav-link-text {
   color: black;
 }
+
+@media (max-width: 767px) {
+  .container {
+    max-width: 90%;
+  }
+  .nav-link-item {
+    padding-right: 1rem;
+  }
+}
