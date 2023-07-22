@@ -1,25 +1,26 @@
-  .container {
-    margin: auto;
-    max-width: 1000px;
-    font-family: "Dancing Script", sans-serif;
-  }
-  .heading {
-    color: #11009E;
-  }
-  .heading-1 {
-    color: #4942E4;
-  }
-  .heading-2 {
-    color: #8696FE;
-  }
-  .nav-links {
-    display: flex;
-    list-style: none;
-    padding-left: 0;
-  }
-  .nav-link-item {
-    padding-right: 2rem;
-  }
-  .nav-link-text {
-    color: black;
-  }
+/* Default styles for all screen sizes */
+.container {
+  margin: auto;
+  max-width: 65%;
+  font-family: "Dancing Script", sans-serif;
+}
+.heading {
+  color: #11009E;
+}
+.heading-1 {
+  color: #4942E4;
+}
+.heading-2 {
+  color: #8696FE;
+}
+.nav-links {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+}
+.nav-link-item {
+  padding-right: 2rem;
+}
+.nav-link-text {
+  color: black;
+}
