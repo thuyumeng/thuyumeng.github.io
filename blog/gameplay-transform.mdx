@@ -69,6 +69,10 @@ $$
 
 ### Example2: JoyStick Control
 Another common example is that we want to control a game object with a joystick.
+<center>
+![joystick](./images/gameplay-transform/joystick.jpeg)
+a scratch of joystick
+</center>
 
 As the figure shows, we have a game object controlled by the joystick.
 It is important to note that the joystick's control directions are in the camera's local coordinate system.
@@ -79,5 +83,5 @@ These process can be represented by the following formula:
 $$
 M_{world}=M M_{joystick} M^{-1} \tag{7}
 $$
-where $M$ is the transformation matrix that transforms the game object's world coordinate system to the camera's local coordinate system, and $M_joystick$ is the rotation matrix that rotates the game object's forward direction according to the joystick's control direction.
+where $M$ is the transformation matrix that transforms the game object's world coordinate system to the camera's local coordinate system, and $M_{joystick}$ is the rotation matrix that rotates the game object's forward direction according to the joystick's control direction.
 This transformation is called sandwich transformation. It is very common in gameplay programming.

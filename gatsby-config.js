@@ -49,9 +49,17 @@ module.exports = {
               // See https://github.com/KaTeX/KaTeX/tree/master/docs/options for available options
             },
           },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 600,
+            }, // need to run "gatsby clean" after changing this to clean the cache
+          },
         ],
       },
     },
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
   ],
 }
 
