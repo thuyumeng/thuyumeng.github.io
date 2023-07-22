@@ -25,6 +25,7 @@
   color: black;
 }
 
+/* configuration of the layout on mobile display*/
 @media (max-width: 767px) {
   .container {
     max-width: 90%;
