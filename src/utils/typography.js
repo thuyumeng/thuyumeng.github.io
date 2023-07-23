@@ -11,7 +11,7 @@ const typography = new Typography({
             paddingLeft: rhythm(18 / 16),
             marginLeft: 0,
             borderLeft: `${rhythm(6 / 16)} solid`,
-            borderColor: "#65B8CD",
+            borderColor: "#4942E4",
           },
       })
 })

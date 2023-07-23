@@ -4,29 +4,20 @@ import Layout from "../components/layout"
 import Seo from '../components/seo'
 
 const IndexPage = () => (
-  <Layout pageTitle="Home Page">
+  <Layout pageTitle="Having Fun ">
     <div>
-      <h1>Richard Hamming on Luck</h1>
       <div>
         <p>
-          From Richard Hamming’s classic and must-read talk, “
-          <a href="http://www.cs.virginia.edu/~robins/YouAndYourResearch.html">
-            You and Your Research
-          </a>
+        <div>Welcome to my website! </div>
+        <div>I am a passionate programmer currently working at Netease, an online game company, where I delve into various aspects of game development. With a focus on rendering techniques, program optimization, and gameplay enhancements, I strive to bring immersive and seamless gaming experiences to players worldwide.</div>
+        <div>My journey as a programmer has been driven by an unwavering love for problem-solving, mathematics, and engineering. These aspects fuel my desire to explore innovative solutions, pushing the boundaries of what games can achieve. I find joy in tackling complex challenges and transforming ideas into reality, contributing to the ever-evolving world of gaming.</div>
+        <div>Beyond my professional pursuits, my heart lies in the world of games.The allure of creating virtual universes, where players can immerse themselves and embark on thrilling adventures, is truly captivating.Additionally, I find immense delight in connecting with people from all walks of life, making new friends, and engaging in intriguing conversations.</div>
+        <div>Through this platform, I aim to share my knowledge, experiences, and insights in the realm of game development and beyond.</div>
+        <div>Join me on this exciting journey as we explore the fascinating intersection of technology, creativity, and human interaction in the gaming world.</div>
+        <div>Together, let's discover the possibilities and potentials that lie ahead!</div>
         </p>
-        <blockquote>
-          <p>
-            There is indeed an element of luck, and no, there isn’t. The prepared
-            mind sooner or later finds something important and does it. So yes, it
-            is luck.
-            <em>
-              The particular thing you do is luck, but that you do something is
-              not.
-            </em>
-          </p>
-        </blockquote>
       </div>
-      <p>Posted April 09, 2011</p>
+      <p>Posted July 23, 2023</p>
     </div>
   </Layout>
 )
